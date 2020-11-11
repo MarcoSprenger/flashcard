@@ -1,10 +1,9 @@
 import React from "react";
 import { Col, Row } from "reactstrap";
 
-const Footer = ({ leftMessage, rightMessage }) => (
+const Footer = ({ leftMessage }) => (
   <Row>
     <Col>&copy; {leftMessage}</Col>
-    <Col className="text-right">{rightMessage}</Col>
   </Row>
 );
 

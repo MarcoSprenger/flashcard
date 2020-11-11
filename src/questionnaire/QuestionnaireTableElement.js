@@ -1,7 +1,7 @@
 import React from 'react';
 
 const textStyle = {
-    verticalAlign: 'middle'
+  verticalAlign: 'middle'
 };
 
 const QuestionnaireTableElement = ({ questionnaire }) => (

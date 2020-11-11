@@ -1,4 +1,5 @@
 import React from 'react';
+import QuestionnaireShowDialog from "./QuestionnaireShowDialog"
 
 const textStyle = {
   verticalAlign: 'middle'
@@ -14,6 +15,11 @@ const QuestionnaireTableElement = ({ questionnaire }) => (
     </td>
     <td colSpan="10" style={textStyle}>
       {questionnaire.description}
+    </td>
+    <td>
+      <div className="btn-group float-right" role="group">
+        <QuestionnaireShowDialog questionnaire={questionnaire} />
+      </div>
     </td>
   </tr>
 )

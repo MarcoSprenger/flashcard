@@ -1,13 +1,13 @@
 import React from "react";
+import _ from "lodash";
 import { Table } from "reactstrap";
 import QuestionnaireTableElement from "./QuestionnaireTableElement";
 
 const QuestionnaireTable = ({ questionnaires }) => (
-  <Table hover className="mt-4">
+  <Table hover>
     <tbody>
-      {questionnaires.map((questionnaire) => (
+      {_.map(questionnaires, (questionnaire) => (
         <QuestionnaireTableElement
-          // IMPORTANT: use the 'key' property to be able to update the list dynamically
           key={questionnaire.id}
           questionnaire={questionnaire}
         />

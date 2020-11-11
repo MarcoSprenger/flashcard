@@ -10,7 +10,8 @@
     "react-dom": "^16.14.0",
     "react-scripts": "3.4.3",
     "bootstrap": "4.5.2",
-    "reactstrap": "8.6.0"
+    "reactstrap": "8.6.0",
+    "lodash": "^4.17.20"
   },
   "scripts": {
     "start": "react-scripts start",

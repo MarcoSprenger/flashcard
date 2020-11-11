@@ -1,8 +1,8 @@
-import React from 'react';
+import React from "react"
 import QuestionnaireShowDialog from "./QuestionnaireShowDialog"
 
 const textStyle = {
-  verticalAlign: 'middle'
+  verticalAlign: "middle",
 };
 
 const QuestionnaireTableElement = ({ questionnaire }) => (
@@ -22,6 +22,6 @@ const QuestionnaireTableElement = ({ questionnaire }) => (
       </div>
     </td>
   </tr>
-)
+);
 
 export default QuestionnaireTableElement;

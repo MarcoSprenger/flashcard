@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState } from 'react'
 import { Button, Modal, ModalHeader, ModalBody, Form, FormGroup, Label, Col, Input } from 'reactstrap'
 
-const QuestionnaireShowDialog = ({questionnaire}) => {
-    const [showModal, setShowModal] = useState(false)
+const QuestionnaireShowDialog = ({ questionnaire }) => {
 
-    const open = () => { setShowModal(true) }
+    let [showModal, setShowModal] = useState(false)
 
-    const close = () => { setShowModal(false) }
-    
+    const close = () => setShowModal(false)
+
+    const open = () => setShowModal(true)
+
     return (
         <div>
             <Button color="secondary" onClick={open} className="float-right">Show</Button>
@@ -50,4 +51,4 @@ const QuestionnaireShowDialog = ({questionnaire}) => {
     )
 }
 
-export default QuestionnaireShowDialog;
+export default QuestionnaireShowDialog

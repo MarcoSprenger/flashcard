@@ -1,20 +1,25 @@
-import React, { useState } from 'react'
-import _ from 'lodash'
-import QuestionnaireTable from './QuestionnaireTable'
+import React, { useState } from 'react';
+import _ from 'lodash';
+import QuestionnaireTable from './QuestionnaireTable';
+import QuestionnaireCreateDialog from "./QuestionnaireCreateDialog";
 
-const ID = 'id'
-const DEFAULT_ID = 0
+const ID = 'id';
+const DEFAULT_ID = 0;
 
 const QuestionnaireContainer = props => {
 
     // use this hook to set a new questionnaire array
-    let [qs, setQuestionnaires] = useState(props.qs)
+    let [qs, setQuestionnaires] = useState(props.qs);
 
     // use this function to generate a new ID
-    const id = qs =>
-        _.get(_.maxBy(qs, ID), ID, DEFAULT_ID) + 1
+    const id = qs => _.get(_.maxBy(qs, ID), ID, DEFAULT_ID) + 1;
+
+    const create = (questionnaire) => {
+        setQuestionnaires(_.concat(qs, { id: id(qs), ...questionnaire }));
+    }
 
     return <div>
+        <QuestionnaireCreateDialog create={create} />
         <h3>Questionnaires</h3>
         <QuestionnaireTable questionnaires={qs} />
     </div>

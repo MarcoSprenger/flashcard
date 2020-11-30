@@ -1,47 +1,84 @@
-import React, { useState } from "react";
-import _ from "lodash";
-import QuestionnaireTable from "./QuestionnaireTable";
-import QuestionnaireCreateDialog from "./QuestionnaireCreateDialog";
+import React, { useState, useEffect } from 'react'
+import _ from 'lodash'
+import QuestionnaireTable from './QuestionnaireTable'
+import QuestionnaireCreateDialog from './QuestionnaireCreateDialog'
 
-const ID = "id";
-const DEFAULT_ID = 0;
+const QuestionnaireContainer = ({ serverUrl }) => {
 
-const QuestionnaireContainer = (props) => {
-  // use this hook to set a new questionnaire array
-  let [qs, setQuestionnaires] = useState(props.qs);
+    let [qs, setQuestionnaires] = useState([])
 
-  // use the function to generate a new ID
-  const id = (qs) => _.get(_.maxBy(qs, ID), ID, DEFAULT_ID) + 1;
+    useEffect(() => {
+        const readAll = async () => {
+            const response = await fetch(serverUrl)
+            const qs = await response.json()
+            setQuestionnaires(qs)
+        }
+        readAll().catch(error => console.error(error))
+    }, [serverUrl])
 
-  const create = (questionnaire) =>
-    // use spread operator "...obj" to merge new questionnaire with new ID
-    setQuestionnaires(_.concat(qs, { id: id(qs), ...questionnaire }));
+    const create = async questionnaire => {
+        const request = new Request(serverUrl, {
+            method: 'POST',
+            headers: new Headers({
+                'Content-Type': 'application/json; charset=utf-8'
+            }),
+            body: JSON.stringify(questionnaire)
+        });
+        try {
+            const response = await fetch(request);
+            if (!response.ok) {
+                console.log('Status Code: ' + response.status);
+            } else {
+                const q = await response.json();
+                setQuestionnaires(_.concat(qs, q))
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
-  const update = (questionnaire) =>
-    setQuestionnaires(
-      _.map(qs, (q) => (q.id === questionnaire.id ? questionnaire : q))
-    );
+    const update = async questionnaire => {
+        let request = new Request(serverUrl + '/' + questionnaire.id, {
+            method: 'PUT',
+            headers: new Headers({
+                'Content-Type': 'application/json; charset=utf-8'
+            }),
+            body: JSON.stringify(questionnaire)
+        });
+        try {
+            const response = await fetch(request);
+            if (!response.ok) {
+                console.log('Status Code: ' + response.status);
+            } else {
+                setQuestionnaires(_.map(qs, q => q.id === questionnaire.id ? questionnaire : q))
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
-  // 'delete' is a reserved word in javascript. Use '_delete' instead.
-  const remove = (id) => setQuestionnaires(_.reject(qs, { id: id }));
+    // 'delete' is a reserved word in javascript. Use '_delete' instead.
+    const remove = async id => {
+        let request = new Request(serverUrl + '/' + id, {
+            method: 'DELETE'
+        });
+        try {
+            const response = await fetch(request);
+            if (!response.ok) {
+                console.log('Status Code: ' + response.status);
+            } else {
+                setQuestionnaires(_.reject(qs, { id: id }))
+            }
+        } catch (error) {
+            console.error(error)
+        }
+    }
 
-  return (
-    <div>
-      <QuestionnaireCreateDialog create={create} />
-      <h3>Questionnaires</h3>
-      <QuestionnaireTable questionnaires={qs} update={update} remove={remove} />
+    return <div>
+        <QuestionnaireCreateDialog create={create} />
+        <h3>Questionnaires</h3>
+        <QuestionnaireTable questionnaires={qs} update={update} remove={remove} />
     </div>
-  );
-};
+}
 
-QuestionnaireContainer.defaultProps = {
-  qs: [
-    { id: 1, title: "Test Title 1", description: "Test Description 1" },
-    { id: 2, title: "Test Title 2", description: "Test Description 2" },
-    { id: 3, title: "Test Title 3", description: "Test Description 3" },
-    { id: 4, title: "Test Title 4", description: "Test Description 4" },
-    { id: 5, title: "Test Title 5", description: "Test Description 5" },
-  ],
-};
-
-export default QuestionnaireContainer;
+export default QuestionnaireContainer

@@ -1,7 +1,22 @@
 import React, { useState } from "react";
-import { Button, Modal, ModalBody, ModalHeader, Form, FormGroup, Label, Col, Input } from "reactstrap";
+import {
+  Button,
+  Modal,
+  ModalBody,
+  ModalHeader,
+  Form,
+  FormGroup,
+  Label,
+  Col,
+  Input,
+} from "reactstrap";
 
-const QuestionnaireUpdateDialog = ({ questionnaire: oldQuestionnaire, update }) => {
+// Use destruction to assign new variable name "oldQuestionnaire" to property "questionnaire"
+// see https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Destructuring_assignment
+const QuestionnaireUpdateDialog = ({
+  questionnaire: oldQuestionnaire,
+  update,
+}) => {
   let [questionnaire, setQuestionnaire] = useState(oldQuestionnaire);
   let [showModal, setShowModal] = useState(false);
 
@@ -13,7 +28,10 @@ const QuestionnaireUpdateDialog = ({ questionnaire: oldQuestionnaire, update }) 
   };
 
   const change = (event) => {
-    setQuestionnaire({ ...questionnaire, [event.target.name]: event.target.value });
+    setQuestionnaire({
+      ...questionnaire,
+      [event.target.name]: event.target.value,
+    });
   };
 
   const save = () => {

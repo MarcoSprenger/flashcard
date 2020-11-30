@@ -17,8 +17,12 @@ const QuestionnaireContainer = (props) => {
     // use spread operator "...obj" to merge new questionnaire with new ID
     setQuestionnaires(_.concat(qs, { id: id(qs), ...questionnaire }));
 
-  const update = (questionnaire) => setQuestionnaires(_.map(qs, (q) => (q.id === questionnaire.id ? questionnaire : q)));
+  const update = (questionnaire) =>
+    setQuestionnaires(
+      _.map(qs, (q) => (q.id === questionnaire.id ? questionnaire : q))
+    );
 
+  // 'delete' is a reserved word in javascript. Use '_delete' instead.
   const remove = (id) => setQuestionnaires(_.reject(qs, { id: id }));
 
   return (

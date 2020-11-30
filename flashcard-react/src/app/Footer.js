@@ -1,9 +1,9 @@
 import React from "react";
 import { Col, Row } from "reactstrap";
 
-const Footer = ({ leftMessage }) => (
+const Footer = ({ message }) => (
   <Row>
-    <Col>&copy; {leftMessage}</Col>
+    <Col>&copy; {message}</Col>
   </Row>
 );
 

@@ -22,8 +22,17 @@ const QuestionnaireTableElement = ({ questionnaire, update, remove }) => (
     <td>
       <div className="btn-group float-right" role="group">
         <QuestionnaireShowDialog questionnaire={questionnaire} />
-        <QuestionnaireUpdateDialog update={update} questionnaire={questionnaire}/>
-        <Button color="danger" onClick={_.partial(remove, questionnaire.id)} className="float-right">Delete</Button>
+        <QuestionnaireUpdateDialog
+          update={update}
+          questionnaire={questionnaire}
+        />
+        <Button
+          color="danger"
+          onClick={_.partial(remove, questionnaire.id)}
+          className="float-right"
+        >
+          Delete
+        </Button>
       </div>
     </td>
   </tr>

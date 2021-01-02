@@ -7,6 +7,14 @@ const QuestionnaireContainer = ({ serverUrl }) => {
 
     let [qs, setQuestionnaires] = useState([])
 
+    // const readAll = () => {
+    //     fetch(serverUrl)
+    //         .then(response => response.json())
+    //         .then(json => setQuestionnaires(json))
+    //         .catch(error => console.error(error))
+    // }
+    // useEffect(readAll, [])
+
     useEffect(() => {
         const readAll = async () => {
             const response = await fetch(serverUrl)

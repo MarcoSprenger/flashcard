@@ -1,14 +1,24 @@
 import React from 'react'
-import _ from 'lodash'
+import { useDispatch } from 'react-redux'
 
-const _onChange = (updateFilterTerm, event) => {
-    event.preventDefault()
-    updateFilterTerm(event.target.value) // Schickt den Filter-Term via props.filterFn nach 'oben'.
-}
+/**
+ * Die Filter Komponente.
+ * Hinweis. Das hier verwendete Form ist eine controlled
+ * Component (https://reactjs.org/docs/forms.html).
+ * 
+ * @param {string} filterTerm Der aktuelle Filter-Term
+ * @return {jsx} Das zu rendernde Element
+ */
+const Filter = ({ filterTerm }) => {
+    const dispatch = useDispatch()
 
-const Filter = ({ updateFilterTerm, term }) => 
-    <form>
-        <input type='text' placeholder='Liste Filtern mit...' value={ term } onChange={ _.partial(_onChange, updateFilterTerm) } />
+    const onChange = event => 
+        dispatch({ type: 'UPDATE_FILTER_TERM', filterTerm: event.target.value })
+
+    return <form>
+        <input type='text' placeholder='Liste Filtern mit...' value={ filterTerm } onChange={ onChange } />
     </form>
+}
+    
 
 export default Filter

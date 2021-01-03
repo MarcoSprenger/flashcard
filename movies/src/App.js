@@ -1,5 +1,5 @@
-import React, { useState, useEffect } from 'react'
-import { useSelector } from 'react-redux'
+import React from 'react'
+import { useSelector, useDispatch } from 'react-redux'
 import _ from 'lodash'
 import './css/style.css'
 
@@ -15,11 +15,12 @@ const filter = (movies, term) => {
 }
 
 const App = () => {
-    const [filterTerm, setFilterTerm] = useState('')
     const movies = useSelector(state => state.movies, _.isEqual)
+    const filterTerm = useSelector(state => state.filterTerm, _.isEqual)
+    const dispatch = useDispatch()
 
     const updateFilterTerm = term => 
-        setFilterTerm(term)
+        dispatch({ type: 'UPDATE_FILTER_TERM', filterTerm: term })
 
     return <main>
         <Filter term={ filterTerm } updateFilterTerm={ updateFilterTerm } />

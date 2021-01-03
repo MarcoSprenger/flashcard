@@ -1,0 +1,32 @@
+[2021-01-02T15:35:22.201] [INFO] app - Server running at http://127.0.0.1:3000/
+[2021-01-02T15:35:25.755] [DEBUG] app - Successfully processed GET request for '/'
+[2021-01-02T15:35:25.877] [DEBUG] app - Successfully processed GET request for '/favicon.ico'
+[2021-01-02T15:45:10.260] [DEBUG] app - Successfully processed GET request for '/'
+[2021-01-02T15:45:30.418] [DEBUG] app - Successfully processed GET request for '/'
+[2021-01-02T16:04:55.253] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:04:55.259] [INFO] app - Server started on port 7000
+[2021-01-02T16:04:57.690] [DEBUG] app - Found 3 questionnaires
+[2021-01-02T16:10:27.032] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:10:27.039] [INFO] app - Server started on port 7000
+[2021-01-02T16:11:44.740] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:11:44.745] [INFO] app - Server started on port 7000
+[2021-01-02T16:12:32.086] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:12:32.092] [INFO] app - Server started on port 7000
+[2021-01-02T16:12:38.038] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:12:38.044] [INFO] app - Server started on port 7000
+[2021-01-02T16:13:31.148] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:13:31.154] [INFO] app - Server started on port 7000
+[2021-01-02T16:13:52.785] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:13:52.791] [INFO] app - Server started on port 7000
+[2021-01-02T16:19:39.219] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:19:39.225] [INFO] app - Server started on port 7000
+[2021-01-02T16:20:46.526] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:20:46.533] [INFO] app - Server started on port 9090
+[2021-01-02T16:21:08.566] [DEBUG] controller - index called
+[2021-01-02T16:21:08.590] [DEBUG] controller - Found 3 questionnaires
+[2021-01-02T16:21:20.232] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:21:20.237] [INFO] app - Server started on port 9090
+[2021-01-02T16:23:47.564] [DEBUG] app - Database URL used 'mongodb://localhost:27017/webfr'
+[2021-01-02T16:23:47.569] [INFO] app - Server started on port 9090
+[2021-01-02T16:28:17.246] [DEBUG] controller - Found 3 questionnaires
+[2021-01-02T16:28:20.359] [DEBUG] controller - Found 3 questionnaires
